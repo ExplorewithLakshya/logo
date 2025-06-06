@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L&V Innovations Logo</title>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .logo-container {
+      font-family: 'DotGothic16', monospace;
+      color: #00ffff;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+      letter-spacing: 0.2em;
+      animation: flicker 2s infinite alternate;
+      font-size: 3rem;
+    }
+
+    .logo-container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 255, 0.05),
+        rgba(0, 255, 255, 0.05) 1px,
+        transparent 2px,
+        transparent 3px
+      );
+      animation: scan 3s linear infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .glitch-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .glitch-text::before,
+    .glitch-text::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      color: #0ff;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .glitch-text::before {
+      top: -1px;
+      text-shadow: -2px 0 magenta;
+      animation: glitchTop 2s infinite linear alternate-reverse;
+    }
+
+    .glitch-text::after {
+      top: 1px;
+      text-shadow: 2px 0 lime;
+      animation: glitchBottom 1.5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 90% 0); }
+      25% { clip-path: inset(10% 0 70% 0); }
+      50% { clip-path: inset(20% 0 50% 0); }
+      75% { clip-path: inset(5% 0 60% 0); }
+      100% { clip-path: inset(0 0 90% 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(80% 0 0 0); }
+      25% { clip-path: inset(60% 0 10% 0); }
+      50% { clip-path: inset(50% 0 20% 0); }
+      75% { clip-path: inset(70% 0 5% 0); }
+      100% { clip-path: inset(80% 0 0 0); }
+    }
+
+    @keyframes scan {
+      0% { background-position: 0 100%; }
+      100% { background-position: 0 0%; }
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 2px #0ff,
+          0 0 5px #0ff,
+          0 0 10px #0ff,
+          0 0 20px #0ff;
+      }
+      20%, 24%, 55% {
+        opacity: 0.4;
+        text-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <div class="glitch-text" data-text="L&V Innovations">L&V Innovations</div>
+  </div>
+</body>
+</html>
