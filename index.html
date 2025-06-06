@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>L&V Innovations Logo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -15,61 +15,61 @@
       height: 100vh;
     }
 
-    .logo-wrapper {
+    .logo-container {
       text-align: center;
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
+      color: white;
+      font-family: 'Share Tech Mono', monospace;
     }
 
-    .logo-text {
+    .symbol {
       font-size: 3rem;
-      background: linear-gradient(90deg, #0ff, #0f0, #0ff);
+      color: #0ff;
+      animation: flicker 2s infinite;
+    }
+
+    .brand {
+      font-size: 2.8rem;
+      letter-spacing: 0.15em;
+      background: linear-gradient(90deg, #0ff, #00ffae);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      position: relative;
+      text-transform: uppercase;
     }
 
-    .tech-stick {
-      width: 180px;
-      height: 5px;
-      margin: 10px auto 0;
-      background: linear-gradient(90deg, #00fff7, #00ffae, #00fff7);
-      border-radius: 3px;
-      animation: glow 3s ease-in-out infinite;
-      box-shadow: 0 0 15px #00fff7;
+    .pulse-line {
+      margin: 15px auto 0;
+      height: 2px;
+      width: 250px;
+      background: linear-gradient(to right, #000, #0ff, #000);
+      animation: pulse 2s linear infinite;
     }
 
-    @keyframes glow {
-      0%, 100% {
-        box-shadow: 0 0 15px #00fff7, 0 0 25px #00ffae;
+    @keyframes pulse {
+      0% {
+        background-position: 0% 50%;
       }
-      50% {
-        box-shadow: 0 0 25px #00ffae, 0 0 35px #00fff7;
+      100% {
+        background-position: 100% 50%;
       }
     }
 
-    .tagline {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: #777;
-      letter-spacing: 0.1em;
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
     }
 
     @media (max-width: 600px) {
-      .logo-text {
-        font-size: 2rem;
-      }
-      .tech-stick {
-        width: 120px;
-      }
+      .brand { font-size: 2rem; }
+      .symbol { font-size: 2rem; }
+      .pulse-line { width: 150px; }
     }
   </style>
 </head>
 <body>
-  <div class="logo-wrapper">
-    <div class="logo-text">L&V Innovations</div>
-    <div class="tech-stick"></div>
-    <div class="tagline">Powering the Future</div>
+  <div class="logo-container">
+    <div class="symbol">⚙️</div>
+    <div class="brand">L&V Innovations</div>
+    <div class="pulse-line"></div>
   </div>
 </body>
 </html>
